@@ -1,0 +1,1 @@
+[{"Name":"manager","StaffId":"2377333","Email":"manager@manager.com","Role":2,"Password":"sdvvzrug","IsActive":true},{"Name":"accountant","StaffId":"2487950","Email":"accountant@dd.com","Role":1,"Password":"sdvvzrug","IsActive":true}]
