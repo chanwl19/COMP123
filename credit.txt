@@ -1,0 +1,8 @@
+check box
+
+https://dotnetvisio.blogspot.com/2015/08/create-select-all-checkbox-column.html
+
+
+datetimepicker
+
+https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-host-controls-in-windows-forms-datagridview-cells?view=netframeworkdesktop-4.8

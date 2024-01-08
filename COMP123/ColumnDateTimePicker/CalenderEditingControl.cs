@@ -41,7 +41,7 @@ namespace COMP123.ColumnDateTimePicker
                         // In the case of an exception, just use the
                         // default value so we're not left with a null
                         // value.
-                        this.Value = DateTime.Now;
+                        this.Value = DateTime.Today;
                     }
                 }
             }

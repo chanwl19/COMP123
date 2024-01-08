@@ -26,7 +26,7 @@ namespace COMP123
                     !string.IsNullOrEmpty(userNametxt.Text) &&
                     !string.IsNullOrWhiteSpace(userNametxt.Text))
                 {
-                    List<Staff> resultStaffs = ObjectHandler.JsonUsersDeserializater();
+                    List<Staff> resultStaffs = SerializationHandler.JsonDeserialization();
                     Staff loginStaff = CheckLogin(userNametxt.Text, passwordtxt.Text, resultStaffs);
 
                     if (loginStaff != null)
@@ -42,19 +42,19 @@ namespace COMP123
                                 this.Hide();
                                 break;
                             default:
-                                MessageBox.Show("Invalid User Role");
+                                MessageBox.Show(this, "Invalid User Role");
                                 break;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid password or username");
+                        MessageBox.Show(this, "Invalid password or username");
                         Logger.WriteLog((int)LogLevels.Info, "Login Form - Login", $"Invalid user name or password {userNametxt.Text}");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Password or user name cannot be empty");
+                    MessageBox.Show(this, "Password or user name cannot be empty");
                 }
             }
             catch (Exception ex)
@@ -84,13 +84,6 @@ namespace COMP123
                  string.Compare(password, "password", true) == 0))
             {
                 Staff returnStaff = new Admin("admin", null, "", "", true);
-                return returnStaff;
-            }
-
-            if ((string.Compare(userName, "1", true) == 0 &&
-                 string.Compare(password, "1", true) == 0))
-            {
-                Staff returnStaff = new Accountant("account", null, "", "", true);
                 return returnStaff;
             }
 

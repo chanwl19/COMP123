@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckAllBox\CheckBoxHeaderCell.cs" />
+    <Compile Include="CheckAllBox\CheckBoxHeaderCellEventArgs.cs" />
     <Compile Include="ColumnDateTimePicker\CalendarCell.cs" />
     <Compile Include="ColumnDateTimePicker\CalenderColumn.cs" />
     <Compile Include="ColumnDateTimePicker\CalenderEditingControl.cs">
@@ -67,22 +69,26 @@
     <Compile Include="Forms\SystemForm.Designer.cs">
       <DependentUpon>SystemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Accountant.cs" />
+    <Compile Include="Model\AccountEntry.cs" />
     <Compile Include="Model\Admin.cs" />
-    <Compile Include="Model\Entry.cs" />
-    <Compile Include="Model\GeneralEntry.cs" />
-    <Compile Include="Model\IAccountAction.cs" />
+    <Compile Include="Utility\AccountEntryHandler.cs" />
+    <Compile Include="Utility\Extensions.cs" />
     <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\Staff.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\Encryption.cs" />
     <Compile Include="Utility\FunctionUtil.cs" />
+    <Compile Include="Utility\GeneralEntryHandler.cs" />
     <Compile Include="Utility\GenerateId.cs" />
+    <Compile Include="Utility\IEntryHandlerAction.cs" />
     <Compile Include="Utility\Logger.cs" />
-    <Compile Include="Utility\ObjectHandler.cs" />
+    <Compile Include="Utility\SerializationHandler.cs" />
     <Compile Include="Utility\Parameters.cs" />
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SystemForm.resx">
       <DependentUpon>SystemForm.cs</DependentUpon>
     </EmbeddedResource>

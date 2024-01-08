@@ -22,11 +22,11 @@ namespace COMP123.Utility
             switch (logLevel)
             {
                 case 0:
-                    fileName = $"{debugPath}InfoLog_{DateTime.Now.ToString(Parameters.logFormat)}.txt";
+                    fileName = $"{debugPath}InfoLog_{DateTime.Now.ToString(Parameters.LOG_FORMAT)}.txt";
                     logMessage = $"[Info] {DateTime.Now.ToString()} : [Class] {type} - [Info Message] {logReference.ToString()}";
                     break;
                 case 1:
-                    fileName = $"{errorPath}ErrorLog_{DateTime.Now.ToString(Parameters.logFormat)}.txt";
+                    fileName = $"{errorPath}ErrorLog_{DateTime.Now.ToString(Parameters.LOG_FORMAT)}.txt";
                     logMessage = $"[Error] {DateTime.Now.ToString()} : [Class] {type} - [Error Message] {logReference.ToString()}";
                     break;
                 default:
