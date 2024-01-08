@@ -28,11 +28,19 @@ namespace COMP123.Forms
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.adminTab = new System.Windows.Forms.TabPage();
+            this.salaryGroupBox = new System.Windows.Forms.GroupBox();
+            this.salaryTotal = new System.Windows.Forms.Label();
+            this.salaryMonth = new System.Windows.Forms.Label();
+            this.salaryMonthSelect = new System.Windows.Forms.ComboBox();
+            this.salaryBox = new System.Windows.Forms.TextBox();
+            this.managerError = new System.Windows.Forms.Label();
+            this.managerIdOpt = new System.Windows.Forms.ComboBox();
+            this.managerLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.activeRadio = new System.Windows.Forms.RadioButton();
             this.inactiveRadio = new System.Windows.Forms.RadioButton();
@@ -62,14 +70,33 @@ namespace COMP123.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.generalEntryGrid = new System.Windows.Forms.DataGridView();
             this.managerTab = new System.Windows.Forms.TabPage();
+            this.rejectBtn = new System.Windows.Forms.Button();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.approveBtn = new System.Windows.Forms.Button();
+            this.generateBtn = new System.Windows.Forms.Button();
+            this.toDateTime = new System.Windows.Forms.DateTimePicker();
+            this.fromDateTime = new System.Windows.Forms.DateTimePicker();
+            this.toLabel = new System.Windows.Forms.Label();
+            this.fromLabel = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.managerAccountOpt = new System.Windows.Forms.RadioButton();
+            this.managerEntryOpt = new System.Windows.Forms.RadioButton();
+            this.managerDashBoardOpt = new System.Windows.Forms.RadioButton();
+            this.managerGridView = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.logoutBtn = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.adminTab.SuspendLayout();
+            this.salaryGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.existingUsersGrid)).BeginInit();
             this.accountantTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalEntryGrid)).BeginInit();
+            this.managerTab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.managerGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -86,6 +113,10 @@ namespace COMP123.Forms
             // adminTab
             // 
             this.adminTab.BackColor = System.Drawing.Color.Gray;
+            this.adminTab.Controls.Add(this.salaryGroupBox);
+            this.adminTab.Controls.Add(this.managerError);
+            this.adminTab.Controls.Add(this.managerIdOpt);
+            this.adminTab.Controls.Add(this.managerLabel);
             this.adminTab.Controls.Add(this.groupBox2);
             this.adminTab.Controls.Add(this.groupBox1);
             this.adminTab.Controls.Add(this.confirmPasswordError);
@@ -114,11 +145,96 @@ namespace COMP123.Forms
             this.adminTab.TabIndex = 0;
             this.adminTab.Text = "Admin Page";
             // 
+            // salaryGroupBox
+            // 
+            this.salaryGroupBox.Controls.Add(this.salaryTotal);
+            this.salaryGroupBox.Controls.Add(this.salaryMonth);
+            this.salaryGroupBox.Controls.Add(this.salaryMonthSelect);
+            this.salaryGroupBox.Controls.Add(this.salaryBox);
+            this.salaryGroupBox.Location = new System.Drawing.Point(464, 573);
+            this.salaryGroupBox.Name = "salaryGroupBox";
+            this.salaryGroupBox.Size = new System.Drawing.Size(532, 65);
+            this.salaryGroupBox.TabIndex = 37;
+            this.salaryGroupBox.TabStop = false;
+            // 
+            // salaryTotal
+            // 
+            this.salaryTotal.AutoSize = true;
+            this.salaryTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.salaryTotal.Location = new System.Drawing.Point(239, 23);
+            this.salaryTotal.Name = "salaryTotal";
+            this.salaryTotal.Size = new System.Drawing.Size(114, 24);
+            this.salaryTotal.TabIndex = 47;
+            this.salaryTotal.Text = "Salary :";
+            this.salaryTotal.Visible = false;
+            // 
+            // salaryMonth
+            // 
+            this.salaryMonth.AutoSize = true;
+            this.salaryMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.salaryMonth.Location = new System.Drawing.Point(11, 19);
+            this.salaryMonth.Name = "salaryMonth";
+            this.salaryMonth.Size = new System.Drawing.Size(101, 24);
+            this.salaryMonth.TabIndex = 46;
+            this.salaryMonth.Text = "Month :";
+            this.salaryMonth.Visible = false;
+            // 
+            // salaryMonthSelect
+            // 
+            this.salaryMonthSelect.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salaryMonthSelect.FormattingEnabled = true;
+            this.salaryMonthSelect.Location = new System.Drawing.Point(118, 23);
+            this.salaryMonthSelect.Name = "salaryMonthSelect";
+            this.salaryMonthSelect.Size = new System.Drawing.Size(115, 24);
+            this.salaryMonthSelect.TabIndex = 18;
+            this.salaryMonthSelect.SelectedIndexChanged += new System.EventHandler(this.salaryMonthSelect_SelectedIndexChanged);
+            // 
+            // salaryBox
+            // 
+            this.salaryBox.Location = new System.Drawing.Point(361, 20);
+            this.salaryBox.Name = "salaryBox";
+            this.salaryBox.Size = new System.Drawing.Size(151, 31);
+            this.salaryBox.TabIndex = 17;
+            // 
+            // managerError
+            // 
+            this.managerError.AutoSize = true;
+            this.managerError.Font = new System.Drawing.Font("MS Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerError.ForeColor = System.Drawing.Color.Red;
+            this.managerError.Location = new System.Drawing.Point(694, 353);
+            this.managerError.Name = "managerError";
+            this.managerError.Size = new System.Drawing.Size(240, 19);
+            this.managerError.TabIndex = 45;
+            this.managerError.Text = "Please Select Manager";
+            this.managerError.Visible = false;
+            // 
+            // managerIdOpt
+            // 
+            this.managerIdOpt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.managerIdOpt.Font = new System.Drawing.Font("MS Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerIdOpt.FormattingEnabled = true;
+            this.managerIdOpt.Location = new System.Drawing.Point(698, 318);
+            this.managerIdOpt.Name = "managerIdOpt";
+            this.managerIdOpt.Size = new System.Drawing.Size(166, 32);
+            this.managerIdOpt.TabIndex = 44;
+            this.managerIdOpt.Visible = false;
+            // 
+            // managerLabel
+            // 
+            this.managerLabel.AutoSize = true;
+            this.managerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.managerLabel.Location = new System.Drawing.Point(694, 291);
+            this.managerLabel.Name = "managerLabel";
+            this.managerLabel.Size = new System.Drawing.Size(101, 24);
+            this.managerLabel.TabIndex = 43;
+            this.managerLabel.Text = "Manager";
+            this.managerLabel.Visible = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.activeRadio);
             this.groupBox2.Controls.Add(this.inactiveRadio);
-            this.groupBox2.Location = new System.Drawing.Point(464, 505);
+            this.groupBox2.Location = new System.Drawing.Point(464, 511);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(342, 55);
             this.groupBox2.TabIndex = 36;
@@ -242,7 +358,7 @@ namespace COMP123.Forms
             // 
             this.actionBtn.Font = new System.Drawing.Font("MS Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.actionBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.actionBtn.Location = new System.Drawing.Point(624, 566);
+            this.actionBtn.Location = new System.Drawing.Point(624, 644);
             this.actionBtn.Name = "actionBtn";
             this.actionBtn.Size = new System.Drawing.Size(132, 46);
             this.actionBtn.TabIndex = 37;
@@ -259,6 +375,7 @@ namespace COMP123.Forms
             this.roleSelect.Name = "roleSelect";
             this.roleSelect.Size = new System.Drawing.Size(166, 32);
             this.roleSelect.TabIndex = 35;
+            this.roleSelect.SelectedIndexChanged += new System.EventHandler(this.roleSelect_SelectedIndexChanged);
             // 
             // confirmPwTxt
             // 
@@ -362,14 +479,6 @@ namespace COMP123.Forms
             this.existingUsersGrid.MultiSelect = false;
             this.existingUsersGrid.Name = "existingUsersGrid";
             this.existingUsersGrid.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("MS Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.existingUsersGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.existingUsersGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.existingUsersGrid.RowTemplate.Height = 24;
             this.existingUsersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -421,6 +530,7 @@ namespace COMP123.Forms
             this.selectMonth.Name = "selectMonth";
             this.selectMonth.Size = new System.Drawing.Size(220, 35);
             this.selectMonth.TabIndex = 4;
+            this.selectMonth.SelectedIndexChanged += new System.EventHandler(this.selectMonth_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -448,10 +558,23 @@ namespace COMP123.Forms
             this.generalEntryGrid.TabIndex = 2;
             this.generalEntryGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.generalEntryGrid_EditingControlShowing);
             this.generalEntryGrid.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.generalEntryGrid_RowPostPaint);
+            this.generalEntryGrid.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.generalEntryGrid_RowsAdded);
+            this.generalEntryGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.generalEntryGrid_UserDeletingRow);
             // 
             // managerTab
             // 
             this.managerTab.BackColor = System.Drawing.Color.Gray;
+            this.managerTab.Controls.Add(this.rejectBtn);
+            this.managerTab.Controls.Add(this.categoryLabel);
+            this.managerTab.Controls.Add(this.categoryComboBox);
+            this.managerTab.Controls.Add(this.approveBtn);
+            this.managerTab.Controls.Add(this.generateBtn);
+            this.managerTab.Controls.Add(this.toDateTime);
+            this.managerTab.Controls.Add(this.fromDateTime);
+            this.managerTab.Controls.Add(this.toLabel);
+            this.managerTab.Controls.Add(this.fromLabel);
+            this.managerTab.Controls.Add(this.groupBox3);
+            this.managerTab.Controls.Add(this.managerGridView);
             this.managerTab.Font = new System.Drawing.Font("MS Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.managerTab.ForeColor = System.Drawing.Color.Blue;
             this.managerTab.Location = new System.Drawing.Point(4, 22);
@@ -459,6 +582,159 @@ namespace COMP123.Forms
             this.managerTab.Size = new System.Drawing.Size(1003, 742);
             this.managerTab.TabIndex = 2;
             this.managerTab.Text = "Manager Page";
+            // 
+            // rejectBtn
+            // 
+            this.rejectBtn.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rejectBtn.Location = new System.Drawing.Point(887, 95);
+            this.rejectBtn.Name = "rejectBtn";
+            this.rejectBtn.Size = new System.Drawing.Size(95, 34);
+            this.rejectBtn.TabIndex = 11;
+            this.rejectBtn.Text = "Reject";
+            this.rejectBtn.UseVisualStyleBackColor = true;
+            this.rejectBtn.Click += new System.EventHandler(this.rejectBtn_Click);
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.Location = new System.Drawing.Point(12, 78);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(79, 16);
+            this.categoryLabel.TabIndex = 10;
+            this.categoryLabel.Text = "Account:";
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(127, 75);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(145, 24);
+            this.categoryComboBox.TabIndex = 9;
+            // 
+            // approveBtn
+            // 
+            this.approveBtn.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.approveBtn.Location = new System.Drawing.Point(768, 95);
+            this.approveBtn.Name = "approveBtn";
+            this.approveBtn.Size = new System.Drawing.Size(95, 34);
+            this.approveBtn.TabIndex = 8;
+            this.approveBtn.Text = "Approve";
+            this.approveBtn.UseVisualStyleBackColor = true;
+            this.approveBtn.Click += new System.EventHandler(this.approveBtn_Click);
+            // 
+            // generateBtn
+            // 
+            this.generateBtn.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateBtn.Location = new System.Drawing.Point(496, 95);
+            this.generateBtn.Name = "generateBtn";
+            this.generateBtn.Size = new System.Drawing.Size(95, 34);
+            this.generateBtn.TabIndex = 7;
+            this.generateBtn.Text = "Generate";
+            this.generateBtn.UseVisualStyleBackColor = true;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
+            // 
+            // toDateTime
+            // 
+            this.toDateTime.CalendarFont = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDateTime.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDateTime.Location = new System.Drawing.Point(333, 104);
+            this.toDateTime.Name = "toDateTime";
+            this.toDateTime.Size = new System.Drawing.Size(145, 23);
+            this.toDateTime.TabIndex = 6;
+            // 
+            // fromDateTime
+            // 
+            this.fromDateTime.CalendarFont = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDateTime.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDateTime.Location = new System.Drawing.Point(127, 104);
+            this.fromDateTime.Name = "fromDateTime";
+            this.fromDateTime.Size = new System.Drawing.Size(145, 23);
+            this.fromDateTime.TabIndex = 4;
+            this.fromDateTime.ValueChanged += new System.EventHandler(this.fromDateTime_ValueChanged);
+            // 
+            // toLabel
+            // 
+            this.toLabel.AutoSize = true;
+            this.toLabel.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toLabel.Location = new System.Drawing.Point(284, 104);
+            this.toLabel.Name = "toLabel";
+            this.toLabel.Size = new System.Drawing.Size(43, 16);
+            this.toLabel.TabIndex = 3;
+            this.toLabel.Text = "To :";
+            // 
+            // fromLabel
+            // 
+            this.fromLabel.AutoSize = true;
+            this.fromLabel.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromLabel.Location = new System.Drawing.Point(13, 104);
+            this.fromLabel.Name = "fromLabel";
+            this.fromLabel.Size = new System.Drawing.Size(61, 16);
+            this.fromLabel.TabIndex = 2;
+            this.fromLabel.Text = "From :";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.managerAccountOpt);
+            this.groupBox3.Controls.Add(this.managerEntryOpt);
+            this.groupBox3.Controls.Add(this.managerDashBoardOpt);
+            this.groupBox3.Location = new System.Drawing.Point(9, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(356, 57);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            // 
+            // managerAccountOpt
+            // 
+            this.managerAccountOpt.AutoSize = true;
+            this.managerAccountOpt.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerAccountOpt.Location = new System.Drawing.Point(234, 19);
+            this.managerAccountOpt.Name = "managerAccountOpt";
+            this.managerAccountOpt.Size = new System.Drawing.Size(115, 20);
+            this.managerAccountOpt.TabIndex = 2;
+            this.managerAccountOpt.TabStop = true;
+            this.managerAccountOpt.Text = "By Account";
+            this.managerAccountOpt.UseVisualStyleBackColor = true;
+            this.managerAccountOpt.CheckedChanged += new System.EventHandler(this.managerAccountOpt_CheckedChanged);
+            // 
+            // managerEntryOpt
+            // 
+            this.managerEntryOpt.AutoSize = true;
+            this.managerEntryOpt.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerEntryOpt.Location = new System.Drawing.Point(118, 19);
+            this.managerEntryOpt.Name = "managerEntryOpt";
+            this.managerEntryOpt.Size = new System.Drawing.Size(115, 20);
+            this.managerEntryOpt.TabIndex = 1;
+            this.managerEntryOpt.TabStop = true;
+            this.managerEntryOpt.Text = "By Entries";
+            this.managerEntryOpt.UseVisualStyleBackColor = true;
+            this.managerEntryOpt.CheckedChanged += new System.EventHandler(this.managerEntryOpt_CheckedChanged);
+            // 
+            // managerDashBoardOpt
+            // 
+            this.managerDashBoardOpt.AutoSize = true;
+            this.managerDashBoardOpt.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.managerDashBoardOpt.Location = new System.Drawing.Point(7, 19);
+            this.managerDashBoardOpt.Name = "managerDashBoardOpt";
+            this.managerDashBoardOpt.Size = new System.Drawing.Size(106, 20);
+            this.managerDashBoardOpt.TabIndex = 0;
+            this.managerDashBoardOpt.TabStop = true;
+            this.managerDashBoardOpt.Text = "Dashboard";
+            this.managerDashBoardOpt.UseVisualStyleBackColor = true;
+            this.managerDashBoardOpt.CheckedChanged += new System.EventHandler(this.managerDashBoard_CheckedChanged);
+            // 
+            // managerGridView
+            // 
+            this.managerGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.managerGridView.BackgroundColor = System.Drawing.Color.White;
+            this.managerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.managerGridView.Location = new System.Drawing.Point(7, 144);
+            this.managerGridView.Name = "managerGridView";
+            this.managerGridView.RowTemplate.Height = 24;
+            this.managerGridView.Size = new System.Drawing.Size(989, 595);
+            this.managerGridView.TabIndex = 0;
+            this.managerGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.managerGridView_RowPostPaint);
             // 
             // label7
             // 
@@ -471,21 +747,37 @@ namespace COMP123.Forms
             this.label7.TabIndex = 1;
             this.label7.Text = "Acconting System";
             // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Font = new System.Drawing.Font("MS Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.logoutBtn.Location = new System.Drawing.Point(885, 12);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(94, 33);
+            this.logoutBtn.TabIndex = 48;
+            this.logoutBtn.Text = "Logout";
+            this.logoutBtn.UseVisualStyleBackColor = true;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
             // SystemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1011, 834);
+            this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tabControl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SystemForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tabControl.ResumeLayout(false);
             this.adminTab.ResumeLayout(false);
             this.adminTab.PerformLayout();
+            this.salaryGroupBox.ResumeLayout(false);
+            this.salaryGroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -494,6 +786,11 @@ namespace COMP123.Forms
             this.accountantTab.ResumeLayout(false);
             this.accountantTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.generalEntryGrid)).EndInit();
+            this.managerTab.ResumeLayout(false);
+            this.managerTab.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.managerGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +830,28 @@ namespace COMP123.Forms
         private ComboBox selectMonth;
         private Label label8;
         private Button saveEntryBtn;
+        private GroupBox groupBox3;
+        private DataGridView managerGridView;
+        private RadioButton managerAccountOpt;
+        private RadioButton managerEntryOpt;
+        private RadioButton managerDashBoardOpt;
+        private DateTimePicker toDateTime;
+        private DateTimePicker fromDateTime;
+        private Label toLabel;
+        private Label fromLabel;
+        private ComboBox managerIdOpt;
+        private Label managerLabel;
+        private Label managerError;
+        private Button generateBtn;
+        private Button approveBtn;
+        private Label categoryLabel;
+        private ComboBox categoryComboBox;
+        private Button rejectBtn;
+        private GroupBox salaryGroupBox;
+        private TextBox salaryBox;
+        private Label salaryMonth;
+        private ComboBox salaryMonthSelect;
+        private Label salaryTotal;
+        private Button logoutBtn;
     }
 }

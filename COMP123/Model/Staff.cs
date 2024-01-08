@@ -14,27 +14,28 @@ namespace COMP123.Model
         public string Email { get; }
         public int Role { get; }
         public string Password { get; }
-
         public bool IsActive { get; }
+        public string ManagerId { get; }
 
-        protected Staff(string name, string staffId, string email, int role, string password, bool isActive = false)
+        protected Staff(string name, string staffId, string email, int role, string password, string managerId, bool isActive = false)
         {
-            Name = name;
-            Email = email;
-            Role = role;
-            Password = password;
-            IsActive = isActive;
-            if (string.IsNullOrEmpty(staffId) || string.IsNullOrWhiteSpace(staffId))
+            this.Name = name;
+            this.Email = email;
+            this.Role = role;
+            this.Password = password;
+            this.IsActive = isActive;
+            if (FunctionUtil.IsEmptyOrNull(staffId))
             {
-                StaffId = GenerateId.GenerateIdByNumbers();
+                this.StaffId = GenerateId.GenerateIdByNumbers();
             }
             else
             {
-                StaffId = staffId;
+                this.StaffId = staffId;
             }
+            this.ManagerId = managerId;
         }
 
-        public abstract T GetDashBoardRecords<T>() where T : class, new();
+        public abstract decimal CalculateSalary(List<AccountEntry> entries);
 
         public override string ToString()
         {
