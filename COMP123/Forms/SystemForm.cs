@@ -37,7 +37,7 @@ namespace COMP123.Forms
         //Form Methods
         public SystemForm(List<Staff> inputStaffs, Staff inputStaff)
         {
-            //Initialize form according to role
+            //Initialize form according to roles
             InitializeComponent();
             InitializeCellStyle();
             operateStaff = inputStaff;
