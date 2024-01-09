@@ -11,6 +11,7 @@ namespace COMP123
 {
     public partial class LoginForm : Form
     {
+        //login form
         public LoginForm()
         {
             InitializeComponent();
