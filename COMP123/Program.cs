@@ -18,7 +18,7 @@ namespace COMP123
         static void Main()
         {
             Application.EnableVisualStyles();
-            //Create folders when program initialize
+            //Create folders when program initialize to avoid no folder error
             Directory.CreateDirectory(ConfigurationManager.AppSettings["userFilePath"]);
             Directory.CreateDirectory(ConfigurationManager.AppSettings["infoFilePath"]);
             Directory.CreateDirectory(ConfigurationManager.AppSettings["errorFilePath"]);
