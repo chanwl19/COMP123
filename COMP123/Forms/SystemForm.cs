@@ -1144,6 +1144,7 @@ namespace COMP123.Forms
                         checkBoxHeader.OnCheckBoxHeaderClick += checkBoxHeader_OnCheckBoxHeaderClick;
                         checkBoxColumn.HeaderCell = checkBoxHeader;
                         checkBoxColumn.Name = header;
+                        checkBoxColumn.HeaderText = "";
                         this.managerGridView.Columns.Add(checkBoxColumn);
                         break;
                     case "Comment":
@@ -1191,15 +1192,21 @@ namespace COMP123.Forms
         private void checkBoxHeader_OnCheckBoxHeaderClick(CheckBoxHeaderCellEventArgs e)
         {
             Logger.WriteLog((int)LogLevels.Info, "Manager Form - checkBoxHeader_OnCheckBoxHeaderClick", $"Start Checked all was selected with staff : {operateStaff.StaffId}");
-            this.managerGridView.BeginEdit(true);
-            foreach (DataGridViewRow item in this.managerGridView.Rows)
+            if (this.managerGridView.RowCount > 0)
             {
-                AccountEntry accountEntry = (AccountEntry) item.Tag;
-                if (accountEntry != null && accountEntry.Status == (int) RecordStatus.Pending) {
-                    item.Cells[0].Value = e.IsChecked;
+                this.managerGridView.BeginEdit(true);
+                foreach (DataGridViewRow item in this.managerGridView.Rows)
+                {
+                    AccountEntry accountEntry = (AccountEntry)item.Tag;
+                    if (accountEntry != null && accountEntry.Status == (int)RecordStatus.Pending)
+                    {
+                        item.Cells[0].Value = e.IsChecked;
+                    }
                 }
+                this.managerGridView.EndEdit();
+            } else {
+                MessageBox.Show(this, "No rows are found in data grid view");
             }
-            this.managerGridView.EndEdit();
             Logger.WriteLog((int)LogLevels.Info, "Manager Form - checkBoxHeader_OnCheckBoxHeaderClick", $"Finish Checked all was selected with staff : {operateStaff.StaffId}");
         }
 
