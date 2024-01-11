@@ -745,7 +745,7 @@ namespace COMP123.Forms
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(319, 35);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Acconting System";
+            this.label7.Text = "Accounting System";
             // 
             // logoutBtn
             // 
