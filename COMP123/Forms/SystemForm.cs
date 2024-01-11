@@ -549,10 +549,13 @@ namespace COMP123.Forms
                 tb.CharacterCasing = CharacterCasing.Normal;
                 if (dgv.CurrentCell.OwningColumn.Name == "Account")
                 {
-                    autoCompleteCollection.AddRange(accounts.ToArray());
-                    tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    tb.AutoCompleteCustomSource = autoCompleteCollection;
+                    if (this.accounts != null && this.accounts.Count > 0)
+                    {
+                        autoCompleteCollection.AddRange(this.accounts.ToArray());
+                        tb.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        tb.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        tb.AutoCompleteCustomSource = autoCompleteCollection;
+                    }
                     tb.CharacterCasing = CharacterCasing.Upper;
                 }
 
@@ -813,7 +816,10 @@ namespace COMP123.Forms
                                         .Where(row => !FunctionUtil.IsCellEmptyOrNUll(row.Cells[1]))
                                         .Select(row => row.Cells[1].Value.ToString())
                                         .ToHashSet();
-            mergedAccounts.UnionWith(this.accounts);
+            if (this.accounts != null && this.accounts.Count > 0)
+            {
+                mergedAccounts.UnionWith(this.accounts);
+            }
             Logger.WriteLog((int)LogLevels.Info, "Accountant Form - MegreAccount", $"Finish to submt existing accounts with new accounts with staff : {operateStaff.StaffId}");
             return mergedAccounts;
         }
@@ -992,7 +998,12 @@ namespace COMP123.Forms
                 this.generateBtn.Visible = true;
 
                 List<Staff> staffs = SerializationHandler.JsonDeserialization();
-                staffs.RemoveAll(staff => staff.Role != (int)Roles.Accountant);
+                staffs.RemoveAll(staff => staff.Role != (int)Roles.Accountant || staff.ManagerId != operateStaff.StaffId);
+                if (staffs == null || staffs.Count == 0) {
+                    MessageBox.Show(this, "No staff under this manager");
+                    this.managerEntryOpt.Checked = false;
+                    this.managerDashBoardOpt.Checked = true;
+                }
                 this.categoryLabel.Text = "Staff ID : ";
                 this.categoryComboBox.DataSource = staffs.Select(staff => staff.StaffId).ToList();
                 Logger.WriteLog((int)LogLevels.Info, "Manager Form - managerEntryOpt_CheckedChanged", $"Finish to initialize when manager option is selected with staff : {operateStaff.StaffId}");
@@ -1018,6 +1029,13 @@ namespace COMP123.Forms
                 List<string> accounts = SerializationHandler
                                         .JsonDeserialization<List<string>>(ConfigurationManager.AppSettings["accountFilePath"] +
                                                                            ConfigurationManager.AppSettings["accountFile"]);
+                if (accounts == null || accounts.Count == 0)
+                {
+                    MessageBox.Show(this, "No Account can be found");
+                    this.managerAccountOpt.Checked = false;
+                    this.managerDashBoardOpt.Checked = true;
+                }
+
                 this.categoryLabel.Text = "Account : ";
                 this.categoryComboBox.DataSource = accounts;
                 Logger.WriteLog((int)LogLevels.Info, "Manager Form - managerAccountOpt_CheckedChanged", $"Finish to initialize when account option is selected with staff : {operateStaff.StaffId}");
@@ -1088,6 +1106,7 @@ namespace COMP123.Forms
             GenerateManagerGrid(getEntryMethod, staffId, fromDate, toDate, isAllRecord, status, accountName, isAccountTag);
             Logger.WriteLog((int)LogLevels.Info, "Manager Form - RetrieveRecord", $"Finish to call retrieve record method with staff : {operateStaff.StaffId}");
         }
+
         //private void GenerateManagerGrid() {
         //Rewrite using delegate
         private void GenerateManagerGrid(Func<string, DateTime, DateTime, bool, int, string, List<AccountEntry>> getEntries, string staffId, DateTime fromDate, DateTime toDate, bool allRecord, int status, string accountName, bool isAccountTag)
