@@ -3,21 +3,15 @@ using COMP123.ColumnDateTimePicker;
 using COMP123.Model;
 using COMP123.Utility;
 using System;
-using System.CodeDom;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static COMP123.Utility.Parameters;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace COMP123.Forms
